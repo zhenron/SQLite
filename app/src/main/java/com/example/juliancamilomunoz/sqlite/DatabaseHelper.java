@@ -16,20 +16,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     // Database Name --------------> public or private????
-    private static final String DATABASE_NAME = "student.db";
+    private static final String DATABASE_NAME = "subway.db";
 
     // Table Name
-    private static final String TABLE_NAME = "student_table";
+    private static final String TABLE_NAME = "subway_table";
 
     // Table Columns names
     private static final String COL_1 = "ID";
     private static final String COL_2 = "NAME";
-    private static final String COL_3 = "SURNAME";
-    private static final String COL_4 = "MARKS";
+    private static final String COL_3 = "LAT";
+    private static final String COL_4 = "LONG";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        //SQLiteDatabase db = this.getWritableDatabase();     //It's not needed when insertData is declared
     }
 
     @Override
@@ -44,14 +43,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Insert record into the database
-    public boolean insertData(String name, String surname, String marks){
+    public boolean insertData(String name, String latitude, String longitude){
         // Open database connection
         SQLiteDatabase db = this.getWritableDatabase();
         // Define values for each field
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, name);
-        contentValues.put(COL_3, surname);
-        contentValues.put(COL_4, marks);
+        contentValues.put(COL_3, latitude);
+        contentValues.put(COL_4, longitude);
         long result = db.insert(TABLE_NAME, null, contentValues);
         if (result == -1)
             return false;
@@ -65,13 +64,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
-    public boolean updateData(String id, String name, String surname, String marks){
+    public boolean updateData(String id, String name, String latitude, String longitude){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_1, id);
         contentValues.put(COL_2, name);
-        contentValues.put(COL_3, surname);
-        contentValues.put(COL_4, marks);
+        contentValues.put(COL_3, latitude);
+        contentValues.put(COL_4, longitude);
         db.update(TABLE_NAME, contentValues, "ID = ?", new String[] { id } );
         return true;
     }

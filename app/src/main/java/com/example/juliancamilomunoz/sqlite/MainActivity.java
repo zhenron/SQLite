@@ -15,7 +15,7 @@ import android.widget.Toast;
 public class MainActivity extends ActionBarActivity {
 
     DatabaseHelper myDb;
-    EditText editName, editSurname, editMarks, editId;
+    EditText editName, editLatitude, editLongitude, editId;
     Button btnAddData, btnViewAll, btnUpdate, btnDelete;
 
 
@@ -27,8 +27,8 @@ public class MainActivity extends ActionBarActivity {
         myDb = new DatabaseHelper(this);
 
         editName = (EditText) findViewById(R.id.editText_name);
-        editSurname = (EditText) findViewById(R.id.editText_surname);
-        editMarks = (EditText) findViewById(R.id.editText_marks);
+        editLatitude = (EditText) findViewById(R.id.editText_lat);
+        editLongitude = (EditText) findViewById(R.id.editText_long);
         editId = (EditText) findViewById(R.id.editText_id);
         btnAddData = (Button) findViewById(R.id.button_add);
         btnViewAll = (Button) findViewById(R.id.button_view);
@@ -46,8 +46,8 @@ public class MainActivity extends ActionBarActivity {
                     @Override
                     public void onClick(View v) {
                         boolean isInserted = myDb.insertData(editName.getText().toString(),
-                                editSurname.getText().toString(),
-                                editMarks.getText().toString());
+                                editLatitude.getText().toString(),
+                                editLongitude.getText().toString());
                         if (isInserted == true)
                             Toast.makeText(MainActivity.this, "Data inserted", Toast.LENGTH_LONG).show();
                         else
@@ -73,8 +73,8 @@ public class MainActivity extends ActionBarActivity {
                         while (res.moveToNext()){
                             buffer.append("Id :" + res.getString(0) + "\n");
                             buffer.append("Name :" + res.getString(1) + "\n");
-                            buffer.append("Surname :" + res.getString(2) + "\n");
-                            buffer.append("Marks :" + res.getString(3) + "\n\n");
+                            buffer.append("Latitude :" + res.getString(2) + "\n");
+                            buffer.append("Longitude :" + res.getString(3) + "\n\n");
                         }
 
                         //show all the data
@@ -99,8 +99,8 @@ public class MainActivity extends ActionBarActivity {
                     public void onClick(View v) {
                         boolean isUpdated = myDb.updateData(editId.getText().toString(),
                                 editName.getText().toString(),
-                                editSurname.getText().toString(),
-                                editMarks.getText().toString());
+                                editLatitude.getText().toString(),
+                                editLongitude.getText().toString());
                         if (isUpdated == true)
                             Toast.makeText(MainActivity.this, "Data updated", Toast.LENGTH_LONG).show();
                         else

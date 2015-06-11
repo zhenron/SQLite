@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Name"
-        android:id="@+id/textView"
+        android:id="@+id/textView_name"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -20,9 +20,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Surname"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/textView"
+        android:text="Latitude"
+        android:id="@+id/textView_lat"
+        android:layout_below="@+id/textView_name"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -30,9 +30,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Marks"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/textView2"
+        android:text="Longitude"
+        android:id="@+id/textView_long"
+        android:layout_below="@+id/textView_lat"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -40,37 +40,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_name"
-        android:layout_above="@+id/textView2"
-        android:layout_toRightOf="@+id/textView"
+        android:layout_above="@+id/textView_lat"
+        android:layout_toRightOf="@+id/textView_name"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText_surname"
-        android:layout_above="@+id/textView3"
+        android:id="@+id/editText_lat"
+        android:layout_above="@+id/textView_long"
         android:layout_alignRight="@+id/editText_name"
         android:layout_alignEnd="@+id/editText_name"
-        android:layout_toRightOf="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2" />
+        android:layout_toRightOf="@+id/textView_lat"
+        android:layout_toEndOf="@+id/textView_lat" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText_marks"
-        android:layout_alignBottom="@+id/textView3"
-        android:layout_alignLeft="@+id/editText_surname"
-        android:layout_alignStart="@+id/editText_surname"
-        android:layout_alignRight="@+id/editText_surname"
-        android:layout_alignEnd="@+id/editText_surname" />
+        android:id="@+id/editText_long"
+        android:layout_alignBottom="@+id/textView_long"
+        android:layout_alignLeft="@+id/editText_lat"
+        android:layout_alignStart="@+id/editText_lat"
+        android:layout_alignRight="@+id/editText_lat"
+        android:layout_alignEnd="@+id/editText_lat" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Data"
         android:id="@+id/button_add"
-        android:layout_below="@+id/textView3"
+        android:layout_below="@+id/textView_long"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="60dp" />
@@ -98,7 +98,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Id"
         android:id="@+id/textView_id"
-        android:layout_below="@+id/textView3"
+        android:layout_below="@+id/textView_long"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -119,12 +119,4 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_below="@+id/button_delete"
-        android:layout_toRightOf="@+id/button_upd"
-        android:layout_toEndOf="@+id/button_upd"
-        android:layout_marginTop="39dp" />
 </RelativeLayout>
