@@ -52,6 +52,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_3, latitude);
         contentValues.put(COL_4, longitude);
         long result = db.insert(TABLE_NAME, null, contentValues);
+        // Closing database connection
+        db.close();
         if (result == -1)
             return false;
         else
@@ -72,11 +74,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_3, latitude);
         contentValues.put(COL_4, longitude);
         db.update(TABLE_NAME, contentValues, "ID = ?", new String[] { id } );
+        // Close the database
+        db.close();
         return true;
     }
 
     public Integer deleteData(String id){
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME,"ID = ?", new String[] { id });
+        Integer my_int = db.delete(TABLE_NAME,"ID = ?", new String[] { id });
+        // Close the database
+        db.close();
+        return my_int;
     }
 }
